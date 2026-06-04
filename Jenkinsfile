@@ -24,11 +24,18 @@ pipeline {
         }
 
         stage('Lint') {
-    steps {
-        sh 'pyflakes3 "expense tracker.py"'
-        echo 'Lint passed!'
-    }
-}
+            steps {
+                sh 'pyflakes3 "expense tracker.py"'
+                echo 'Lint passed!'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t expense-tracker:latest .'
+                echo 'Docker image built!'
+            }
+        }
 
     }
 
