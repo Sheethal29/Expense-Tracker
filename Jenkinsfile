@@ -24,11 +24,11 @@ pipeline {
         }
 
         stage('Lint') {
-            steps {
-                sh 'pip3 install pyflakes --quiet'
-                sh 'python3 -m pyflakes "expense tracker.py"'
-            }
-        }
+    steps {
+        sh 'pyflakes3 "expense tracker.py"'
+        echo 'Lint passed!'
+    }
+}
 
     }
 
